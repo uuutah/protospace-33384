@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  get 'prototypes/index'
+  ## ルートパスにアクセスした時に、先ほど定義したprototypesコントローラーのindexアクションが呼ばれる
+  root to: "prototypes#index"
+  resources :prototypes do
+    resources :comments, only: :create
+  end
+  ## ユーザーのルーティングは設定するのか後で確認
+  resources :users, only: :show
+  
 end
