@@ -8,8 +8,6 @@ class CreatePrototypes < ActiveRecord::Migration[6.0]
       t.text :concept,           null: false
       t.references :user,        foreign_key: true
 
-      has_one_attached :image
-
     end
   end
 end
